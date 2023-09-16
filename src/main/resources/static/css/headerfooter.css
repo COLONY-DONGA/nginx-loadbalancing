@@ -1,0 +1,391 @@
+/* 루트 */
+
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+:root {
+  --baseColor: #333;
+  --blueColor: #22aee5;
+  --baseContainer: 79.375rem;
+}
+
+/* 헤더 */
+
+body {
+  padding-top: 6rem;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid #d3d3d3;
+  z-index: 100;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(255 255 255 / 86%);
+  font-size: 16px;
+  font-family: 'NanumSquare', sans-serif;
+  color: var(--baseColor);
+  z-index: 9999;
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+}
+
+header .logo {
+  width: 10rem;
+  height: 3rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+header ul {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  margin-left: -2rem;
+}
+
+header ul li {
+  width: 100px;
+}
+
+header ul li a {
+  position: relative;
+  display: inline-block;
+  line-height: 5rem;
+  font-weight: bold;
+  font-size: 1.0625rem;
+}
+
+header ul li:hover a {
+  color: var(--blueColor);
+}
+
+header ul li a:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--blueColor);
+  left: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+header ul li:hover a:after {
+  opacity: 1;
+}
+
+header a:link,
+header a:visited,
+header a:hover,
+header a:active {
+  color: var(--baseColor);
+  text-decoration: none;
+}
+
+header ul li {
+  position: relative;
+}
+
+header ul li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5px;
+  height: 50px;
+  background-color: #ccc;
+  right: 0;
+}
+
+header ul li.no-border::before {
+  display: none;
+}
+
+/* 헤더 - 카테고리 */
+
+header .category {
+  display: flex;
+  margin: 0 15rem 0 1rem;
+}
+
+/* 헤더 - 유저 */
+
+header .user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem 0 10rem;
+}
+
+header .dropBtn {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: white;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+header .profile {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+header span {
+  font-weight: bold;
+}
+
+.dropItem {
+  display: none;
+  position: absolute;
+  top: 4rem;
+  left: -3rem;
+  border-radius: 1.2rem;
+  font-weight: 400;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 10000;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropItem a {
+  display: block;
+  text-decoration: none;
+  border-radius: 1.2rem;
+  color: rgb(37, 37, 37);
+  font-size: 14px;
+  padding: 12px 20px;
+}
+
+.dropItem a:hover {
+  background-color: #ececec;
+}
+
+header .user:hover .dropItem {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+header .user:hover .dropBtn {
+  color: #7367f0;
+}
+
+/* 헤더 - 알림 */
+
+.notification-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#notification-icon {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.notification-button {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: inherit;
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+}
+
+#notification-icon:hover,
+.notification-button:hover .fa-bell {
+  color: #7367f0;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  width: 18px;
+  height: 18px;
+  background-color: #ff4136;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.show-badge {
+  display: flex;
+}
+
+.header-notification-dropdown {
+  position: absolute;
+  top: 80%;
+  right: -150px;
+  min-width: 400px;
+  max-width: 450px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 9999;
+}
+
+.header-notification-dropdown::-webkit-scrollbar {
+  width: 10px;
+}
+
+.header-notification-dropdown::-webkit-scrollbar-track {
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.header-notification-dropdown::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+}
+
+.notification-item {
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.notification-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.read-notification {
+  background-color: #f0f0f0;
+}
+
+.unread-notification {
+  background-color: #ffffff;
+}
+
+.unread-notification:hover {
+  background-color: #f8f8f8;
+}
+
+.notification-arrive-time {
+  color: #999;
+  font-size: 13px;
+}
+
+.delete-btn {
+  cursor: pointer;
+  color: #aaa;
+  float: right;
+  margin-top: 5px;
+}
+
+.notification-action-btn {
+  cursor: pointer;
+  padding: 7px 14px;
+  margin: 8px 4px;
+  font-size: 13px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  color: #333;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.notification-action-btn:hover {
+  background-color: #e5e5e5;
+  color: #555;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 푸터 */
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 14px;
+  font-family: 'NanumSquare', sans-serif;
+  color: var(--baseColor);
+  margin: 2rem 0 3rem 0;
+}
+
+footer .logo {
+  width: 13rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+footer .title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-bottom: 3px solid #6b9275;
+}
+
+footer a {
+  text-decoration: none;
+  color: gray;
+}
+
+footer .f1 {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+footer .f2 {
+  font-size: 0.8rem;
+  margin: 0 2rem 0 2rem;
+  line-height: 1.5rem;
+}
+
+footer .f3 {
+  font-size: 0.8rem;
+  margin: 0 2rem 0 2rem;
+  line-height: 1.5rem;
+}
+
+footer .f4 {
+  font-size: 0.8rem;
+  margin-left: 2rem;
+  line-height: 1.5rem;
+}

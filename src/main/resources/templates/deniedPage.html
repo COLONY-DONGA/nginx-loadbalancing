@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--    https ajax 문제 해결-->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<input id="msg" type="hidden" th:value="${msg}">
+<input id="nextPage" type="hidden" th:value="${nextPage}">
+<script>
+  window.onload = function() {
+    let msg = document.querySelector('#msg').value;
+    let nextPage = document.querySelector('#nextPage').value;
+    if(nextPage) {
+      alert(msg);
+      location.href = nextPage;
+    }
+    else {
+      alert(msg);
+      window.history.back();
+    }
+  }
+</script>
+</body>
+</html>
