@@ -128,7 +128,8 @@ colony-web은 동아리원들 사이 정보 교류등의 다목적 커뮤니티�
 <div id="6"></div>
 
 ## 🛠 Software Architecture
-![image](https://github.com/dgjinsu/shop-1/assets/97269799/07dc46f6-4cc0-40a6-84a5-c4970202f5ab)  
+![image](https://github.com/COLONY-DONGA/nginx-loadbalancing/assets/97269799/d0f5cd9d-8771-4cd5-9651-51b5fac84dde)
+
 
 <br/>
 <div id="7"></div>
